@@ -42,11 +42,14 @@ L.geoJSON(data, {
     // We turn each feature into a marker on the map.
     pointToLayer: function(feature, latlng) {
       console.log(feature);
-      return L.marker(latlng)
-      .bindPopup("<h3>" + "Airport Code: " +feature.properties.faa + "</h3> <hr> <h3>" + "Airport Name: " +feature.properties.name + "</h3>");
-    }
-
-  }).addTo(map);
+      return L.marker(latlng);
+    },
+    
+     onEachFeature: function(feature,layer){
+    layer.bindPopup("<h3> Airport Code: " + feature.properties.faa + "</h3> <hr> <h3> Airport Name: "
+    + feature.properties.name + "</h3>");
+  }
+}).addTo(map);
 });
 
 // Various streets IDs
