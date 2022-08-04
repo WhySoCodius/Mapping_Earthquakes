@@ -167,7 +167,7 @@ L.geoJson(data, {
     console.log(data);
     return L.circleMarker(latlng);
   },
-  style: majorEarthquakesStyle,
+  style: styleInfo,
   onEachFeature: function(feature, layer) {
     layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
    }
